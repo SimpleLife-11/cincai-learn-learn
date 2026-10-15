@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sproutalk｜零基础日语五十音学习</title>
+
+  <meta
+    name="description"
+    content="Sproutalk 是为零基础成人设计的童趣日语学习网站，从五十音、假名与罗马音开始，一小步一小步学习日语。"
+  >
+
+  <style>
+    :root {
+      --green: #5e9f76;
+      --dark-green: #37634b;
+      --light-green: #dff1df;
+      --cream: #fffaf0;
+      --yellow: #ffd978;
+      --pink: #f5b5ad;
+      --blue: #addbea;
+      --text: #33413a;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 15%, #fff0b8 0 70px, transparent 72px),
+        radial-gradient(circle at 90% 25%, #d8eef7 0 90px, transparent 92px),
+        var(--cream);
+      font-family:
+        "Segoe UI",
+        "Noto Sans SC",
+        "Microsoft YaHei",
+        sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dark-green);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      background: var(--light-green);
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      font-size: 25px;
+    }
+
+    .nav-link {
+      padding: 10px 18px;
+      background: var(--white);
+      border: 2px solid var(--dark-green);
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+      background: var(--light-green);
+    }
+
+    .hero {
+      width: min(1120px, 92%);
+      min-height: 520px;
+      margin: 20px auto 60px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      background: var(--yellow);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--dark-green);
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero-text {
+      max-width: 620px;
+      margin: 24px 0 30px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .start-button {
+      display: inline-block;
+      padding: 15px 24px;
+      color: var(--white);
+      background: var(--dark-green);
+      border-radius: 16px;
+      box-shadow: 0 7px 0 #244333;
+      font-size: 17px;
+      font-weight: 800;
+      transition: 0.15s ease;
+    }
+
+    .start-button:hover {
+      transform: translateY(3px);
+      box-shadow: 0 4px 0 #244333;
+    }
+
+    .mascot-card {
+      position: relative;
+      min-height: 360px;
+      padding: 36px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: var(--white);
+      border: 3px solid var(--dark-green);
+      border-radius: 40px 40px 80px 40px;
+      box-shadow: 14px 14px 0 var(--blue);
+      transform: rotate(2deg);
+    }
+
+    .mascot {
+      font-size: 100px;
+      animation: bounce 2.4s ease-in-out infinite;
+    }
+
+    .speech {
+      margin-top: 16px;
+      padding: 12px 18px;
+      background: var(--light-green);
+      border-radius: 18px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .speech small {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .lessons {
+      width: min(1000px, 92%);
+      margin: 0 auto 80px;
+    }
+
+    .section-title {
+      margin-bottom: 26px;
+      text-align: center;
+      color: var(--dark-green);
+      font-size: 32px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .lesson-card {
+      padding: 28px;
+      background: var(--white);
+      border: 2px solid var(--dark-green);
+      border-radius: 26px;
+      box-shadow: 7px 7px 0 var(--pink);
+    }
+
+    .lesson-card:nth-child(2) {
+      box-shadow: 7px 7px 0 var(--yellow);
+    }
+
+    .lesson-number {
+      display: inline-grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      background: var(--light-green);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .lesson-card h3 {
+      margin: 18px 0 10px;
+      color: var(--dark-green);
+      font-size: 23px;
+    }
+
+    .lesson-card p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 26px;
+      text-align: center;
+      color: var(--dark-green);
+      background: var(--light-green);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(3deg);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        padding-top: 18px;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        margin-top: 40px;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .mascot-card {
+        min-height: 280px;
+      }
+
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">
+      <span class="logo-icon">🌱</span>
+      <span>Sproutalk</span>
+    </a>
+
+    <a class="nav-link" href="#lessons">看看第一课</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">为零基础学习者而设计</span>
+
+        <h1>
+          让日语<br>
+          <span>一点点发芽</span>
+        </h1>
+
+        <p class="hero-text">
+          从第一个「あ」开始，认识平假名、片假名和罗马音。
+          不用赶进度，每天学习一点，也是在向前走。
+        </p>
+
+        <a class="start-button" href="#lessons">
+          开始学习五十音 →
+        </a>
+      </div>
+
+      <div class="mascot-card">
+        <div>
+          <div class="mascot">🌱</div>
+
+          <div class="speech">
+            こんにちは！
+            <small>Konnichiwa · 你好</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lessons" id="lessons">
+      <h2 class="section-title">从这里开始学习</h2>
+
+      <div class="lesson-grid">
+        <article class="lesson-card">
+          <span class="lesson-number">01</span>
+          <h3>五十音入门</h3>
+          <p>
+            从「あ行」开始，逐组认识平假名和片假名，
+            并配合准确的罗马音学习。
+          </p>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">02</span>
+          <h3>假名与罗马音练习</h3>
+          <p>
+            看假名选择罗马音，再从罗马音找出正确假名，
+            用轻松的小测验加深记忆。
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Sproutalk · Grow a new language, one tiny step at a time.
+  </footer>
+</body>
+</html>
