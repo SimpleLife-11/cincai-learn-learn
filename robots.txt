@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://simplelife-11.github.io/cincai-learn-learn/sitemap.xml

@@ -2,390 +2,103 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Cincai Learn Learn｜零基础日语五十音学习</title>
-
-  <meta
-    name="description"
-    content="Cincai Learn Learn 是为零基础成人设计的童趣日语学习网站，从五十音、假名与罗马音开始，一小步一小步学习日语。"
-  >
-
+  <meta name="description" content="免费学习日语平假名五十音，包含46个基础假名、罗马音、日语发音、例词和互动测验。">
+  <meta name="theme-color" content="#5e9f76">
+  <link rel="canonical" href="https://simplelife-11.github.io/cincai-learn-learn/">
   <style>
-    :root {
-      --green: #5e9f76;
-      --dark-green: #37634b;
-      --light-green: #dff1df;
-      --cream: #fffaf0;
-      --yellow: #ffd978;
-      --pink: #f5b5ad;
-      --blue: #addbea;
-      --text: #33413a;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 15%, #fff0b8 0 70px, transparent 72px),
-        radial-gradient(circle at 90% 25%, #d8eef7 0 90px, transparent 92px),
-        var(--cream);
-      font-family:
-        "Segoe UI",
-        "Noto Sans SC",
-        "Microsoft YaHei",
-        sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site-header {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-      padding: 24px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--dark-green);
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .logo-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      background: var(--light-green);
-      border: 2px solid var(--green);
-      border-radius: 50%;
-      font-size: 25px;
-    }
-
-    .nav-link {
-      padding: 10px 18px;
-      background: var(--white);
-      border: 2px solid var(--dark-green);
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .nav-link:hover {
-      transform: translateY(-2px);
-      background: var(--light-green);
-    }
-
-    .hero {
-      width: min(1120px, 92%);
-      min-height: 520px;
-      margin: 20px auto 60px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 50px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 8px 14px;
-      background: var(--yellow);
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--dark-green);
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.08;
-      letter-spacing: -2px;
-    }
-
-    h1 span {
-      color: var(--green);
-    }
-
-    .hero-text {
-      max-width: 620px;
-      margin: 24px 0 30px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .start-button {
-      display: inline-block;
-      padding: 15px 24px;
-      color: var(--white);
-      background: var(--dark-green);
-      border-radius: 16px;
-      box-shadow: 0 7px 0 #244333;
-      font-size: 17px;
-      font-weight: 800;
-      transition: 0.15s ease;
-    }
-
-    .start-button:hover {
-      transform: translateY(3px);
-      box-shadow: 0 4px 0 #244333;
-    }
-
-    .mascot-card {
-      position: relative;
-      min-height: 360px;
-      padding: 36px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      background: var(--white);
-      border: 3px solid var(--dark-green);
-      border-radius: 40px 40px 80px 40px;
-      box-shadow: 14px 14px 0 var(--blue);
-      transform: rotate(2deg);
-    }
-
-    .mascot {
-      font-size: 100px;
-      animation: bounce 2.4s ease-in-out infinite;
-    }
-
-    .speech {
-      margin-top: 16px;
-      padding: 12px 18px;
-      background: var(--light-green);
-      border-radius: 18px;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .speech small {
-      display: block;
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .lessons {
-      width: min(1000px, 92%);
-      margin: 0 auto 80px;
-    }
-
-    .section-title {
-      margin-bottom: 26px;
-      text-align: center;
-      color: var(--dark-green);
-      font-size: 32px;
-    }
-
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .lesson-card {
-      padding: 28px;
-      background: var(--white);
-      border: 2px solid var(--dark-green);
-      border-radius: 26px;
-      box-shadow: 7px 7px 0 var(--pink);
-    }
-
-    .lesson-card:nth-child(2) {
-      box-shadow: 7px 7px 0 var(--yellow);
-    }
-
-    .lesson-number {
-      display: inline-grid;
-      width: 42px;
-      height: 42px;
-      place-items: center;
-      background: var(--light-green);
-      border-radius: 50%;
-      font-weight: 900;
-    }
-
-    .lesson-card h3 {
-      margin: 18px 0 10px;
-      color: var(--dark-green);
-      font-size: 23px;
-    }
-
-    .lesson-card p {
-      margin: 0;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 26px;
-      text-align: center;
-      color: var(--dark-green);
-      background: var(--light-green);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0) rotate(-3deg);
-      }
-
-      50% {
-        transform: translateY(-12px) rotate(3deg);
-      }
-    }
-
-    @media (max-width: 760px) {
-      .site-header {
-        padding-top: 18px;
-      }
-
-      .nav-link {
-        display: none;
-      }
-
-      .hero {
-        min-height: auto;
-        margin-top: 40px;
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content {
-        text-align: center;
-      }
-
-      .hero-text {
-        font-size: 16px;
-      }
-
-      .mascot-card {
-        min-height: 280px;
-      }
-
-      .lesson-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  :root{--green:#5e9f76;--dark:#37634b;--light:#dff1df;--cream:#fffaf0;--yellow:#ffd978;--pink:#f5b5ad;--blue:#addbea;--text:#33413a;--white:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:var(--cream);font-family:"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif}a{color:inherit;text-decoration:none}.site-header{width:min(1120px,92%);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:10px;color:var(--dark);font-size:23px;font-weight:900}.logo-icon{width:46px;height:46px;display:grid;place-items:center;background:var(--light);border:2px solid var(--green);border-radius:50%;font-size:25px}.nav-link{padding:10px 17px;background:white;border:2px solid var(--dark);border-radius:999px;font-weight:800}.hero{background:radial-gradient(circle at 10% 25%,#fff0b8 0 74px,transparent 76px),radial-gradient(circle at 91% 35%,#d8eef7 0 94px,transparent 96px),var(--cream)}.hero-inner{width:min(1120px,92%);min-height:520px;margin:auto;display:grid;grid-template-columns:1.35fr .65fr;align-items:center;gap:50px;padding:55px 0 78px}.eyebrow{display:inline-block;padding:7px 13px;background:var(--yellow);border-radius:999px;font-size:14px;font-weight:850}.hero h1{max-width:760px;margin:18px 0;color:var(--dark);font-size:clamp(43px,7vw,76px);line-height:1.07}.hero p{max-width:690px;margin:0;font-size:18px;line-height:1.8}.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}.cta{padding:14px 22px;border:2px solid var(--dark);border-radius:16px;font-weight:850}.cta.primary{color:white;background:var(--dark)}.cta.secondary{background:white}.mascot-card{padding:34px 25px;text-align:center;background:white;border:3px solid var(--dark);border-radius:38px;box-shadow:12px 12px 0 var(--pink);transform:rotate(2deg)}.mascot{font-size:92px}.mascot-card strong{display:block;margin-top:10px;color:var(--dark);font-size:24px}.mascot-card p{font-size:15px}.stats{width:min(900px,92%);margin:-40px auto 64px;padding:20px;display:grid;grid-template-columns:repeat(3,1fr);background:white;border:2px solid var(--dark);border-radius:24px;box-shadow:8px 8px 0 var(--blue);text-align:center}.stat strong{display:block;color:var(--dark);font-size:29px}.stat span{font-size:14px}.lessons{width:min(1120px,92%);margin:0 auto 80px}.section-kicker{color:var(--green);font-weight:850}.section-title{margin:8px 0 12px;color:var(--dark);font-size:clamp(32px,5vw,48px)}.section-intro{max-width:680px;margin:0 0 30px;line-height:1.7}.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.lesson-card{position:relative;overflow:hidden;padding:24px;background:white;border:2px solid var(--dark);border-radius:24px;box-shadow:6px 6px 0 var(--blue);transition:.2s}.lesson-card:nth-child(2n){box-shadow:6px 6px 0 var(--pink)}.lesson-card:hover{transform:translateY(-5px)}.lesson-top{display:flex;align-items:center;justify-content:space-between;gap:15px}.lesson-number{display:inline-grid;place-items:center;width:42px;height:42px;color:var(--dark);background:var(--yellow);border-radius:50%;font-weight:900}.lesson-card h3{margin:14px 0 7px;color:var(--dark);font-size:23px}.kana-preview{margin:0 0 17px;color:var(--green);font-size:22px;font-weight:850;letter-spacing:.08em}.start{color:var(--dark);font-weight:850}.tips{background:var(--light);padding:70px 0}.tips-inner{width:min(1000px,92%);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.tip-card{padding:24px;background:white;border-radius:22px}.tip-card span{font-size:34px}.tip-card h3{margin:10px 0;color:var(--dark)}.tip-card p{margin:0;line-height:1.7;font-size:15px}footer{padding:28px;text-align:center;color:var(--dark);background:#cbe7cd;font-weight:700}
+  @media(max-width:780px){.hero-inner{grid-template-columns:1fr;padding-top:35px}.mascot-card{max-width:360px;margin:auto}.lesson-grid,.tips-inner{grid-template-columns:1fr}.stats{grid-template-columns:1fr;gap:16px;margin-top:-20px}.site-header{gap:12px}.logo{font-size:18px}.nav-link{font-size:14px}.hero h1{font-size:44px}}
+</style>
 </head>
-
 <body>
-  <header class="site-header">
-    <a class="logo" href="#">
-      <span class="logo-icon">🌱</span>
-      <span>Cincai Learn Learn</span>
-    </a>
-
-    <a class="nav-link" href="#lessons">看看第一课</a>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-content">
+  <div class="hero">
+    <header class="site-header">
+      <a class="logo" href="./"><span class="logo-icon">🌱</span><span>Cincai Learn Learn</span></a>
+      <a class="nav-link" href="#lessons">全部课程</a>
+    </header>
+    <div class="hero-inner">
+      <div>
         <span class="eyebrow">为零基础学习者而设计</span>
-
-        <h1>
-          让日语<br>
-          <span>一点点发芽</span>
-        </h1>
-
-        <p class="hero-text">
-          从第一个「あ」开始，认识平假名、片假名和罗马音。
-          不用赶进度，每天学习一点，也是在向前走。
-        </p>
-
-        <a class="start-button" href="lessons/hiragana-a.html">
-          开始学习五十音 →
-        </a>
+        <h1>Cincai 学一点，日语会多一点</h1>
+        <p>从第一个「あ」开始，认识完整的平假名五十音。每课只学一小组，听发音、看例词，再用小测验把它记下来。</p>
+        <div class="hero-actions"><a class="cta primary" href="lessons/hiragana-a.html">从「あ行」开始 →</a><a class="cta secondary" href="#lessons">看看全部课程</a></div>
       </div>
-
-      <div class="mascot-card">
-        <div>
-          <div class="mascot">🌱</div>
-
-          <div class="speech">
-            こんにちは！
-            <small>Konnichiwa · 你好</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
+      <div class="mascot-card"><div class="mascot">🌱</div><strong>こんにちは！</strong><p>Konnichiwa · 你好<br>今天也 cincai learn learn 吧～</p></div>
+    </div>
+  </div>
+  <section class="stats" aria-label="课程资料"><div class="stat"><strong>46</strong><span>基础平假名</span></div><div class="stat"><strong>10</strong><span>循序课程</span></div><div class="stat"><strong>免费</strong><span>随时开始学习</span></div></section>
+  <main>
     <section class="lessons" id="lessons">
-      <h2 class="section-title">从这里开始学习</h2>
-
-     <div class="lesson-grid">
-  <a
-    class="lesson-card"
-    href="lessons/hiragana-a.html"
-  >
-    <span class="lesson-number">01</span>
-
-    <h3>平假名「あ行」</h3>
-
-    <p>
-      学习「あ、い、う、え、お」的写法、
-      罗马音和日语发音。
-    </p>
-
-    <span
-      style="
-        color: #37634b;
-        font-weight: 800;
-      "
-    >
-      开始第一课 →
-    </span>
-  </a>
-
-  <a
-    class="lesson-card"
-    href="lessons/hiragana-ka.html"
-  >
-    <span class="lesson-number">02</span>
-
-    <h3>平假名「か行」</h3>
-
-    <p>
-      学习「か、き、く、け、こ」的写法、
-      罗马音、例词和发音。
-    </p>
-
-    <span
-      style="
-        color: #37634b;
-        font-weight: 800;
-      "
-    >
-      开始第二课 →
-    </span>
-  </a>
-</div>
+      <span class="section-kicker">HIRAGANA COURSE</span>
+      <h2 class="section-title">完整五十音课程</h2>
+      <p class="section-intro">每张卡片都是一堂独立课程。可以照顺序学习，也可以直接打开想复习的那一行。</p>
+      <div class="lesson-grid">
+      <a class="lesson-card" href="lessons/hiragana-a.html">
+        <div class="lesson-top"><span class="lesson-number">01</span><span>第 1 课</span></div>
+        <h3>平假名「あ行」</h3>
+        <p class="kana-preview">あ・い・う・え・お</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-ka.html">
+        <div class="lesson-top"><span class="lesson-number">02</span><span>第 2 课</span></div>
+        <h3>平假名「か行」</h3>
+        <p class="kana-preview">か・き・く・け・こ</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-sa.html">
+        <div class="lesson-top"><span class="lesson-number">03</span><span>第 3 课</span></div>
+        <h3>平假名「さ行」</h3>
+        <p class="kana-preview">さ・し・す・せ・そ</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-ta.html">
+        <div class="lesson-top"><span class="lesson-number">04</span><span>第 4 课</span></div>
+        <h3>平假名「た行」</h3>
+        <p class="kana-preview">た・ち・つ・て・と</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-na.html">
+        <div class="lesson-top"><span class="lesson-number">05</span><span>第 5 课</span></div>
+        <h3>平假名「な行」</h3>
+        <p class="kana-preview">な・に・ぬ・ね・の</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-ha.html">
+        <div class="lesson-top"><span class="lesson-number">06</span><span>第 6 课</span></div>
+        <h3>平假名「は行」</h3>
+        <p class="kana-preview">は・ひ・ふ・へ・ほ</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-ma.html">
+        <div class="lesson-top"><span class="lesson-number">07</span><span>第 7 课</span></div>
+        <h3>平假名「ま行」</h3>
+        <p class="kana-preview">ま・み・む・め・も</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-ya.html">
+        <div class="lesson-top"><span class="lesson-number">08</span><span>第 8 课</span></div>
+        <h3>平假名「や行」</h3>
+        <p class="kana-preview">や・ゆ・よ</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-ra.html">
+        <div class="lesson-top"><span class="lesson-number">09</span><span>第 9 课</span></div>
+        <h3>平假名「ら行」</h3>
+        <p class="kana-preview">ら・り・る・れ・ろ</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      <a class="lesson-card" href="lessons/hiragana-wa.html">
+        <div class="lesson-top"><span class="lesson-number">10</span><span>第 10 课</span></div>
+        <h3>平假名「わ行＋ん」</h3>
+        <p class="kana-preview">わ・を・ん</p>
+        <span class="start">开始学习 →</span>
+      </a>
+      </div>
     </section>
+    <section class="tips"><div class="tips-inner"><article class="tip-card"><span>👀</span><h3>先看形状</h3><p>留意假名的弧线和方向，不用一开始就追求写得完美。</p></article><article class="tip-card"><span>🔊</span><h3>再听发音</h3><p>每个假名都能点击播放。多听几遍，让声音和形状连在一起。</p></article><article class="tip-card"><span>🌱</span><h3>最后做测验</h3><p>答错也没关系。重复练习，记忆会一点点长出来。</p></article></div></section>
   </main>
-
-  <footer>
-    Cincai Learn Learn · Grow a new language, one tiny step at a time.
-  </footer>
+  <footer>Cincai Learn Learn · 随便学一点，慢慢会多一点。</footer>
 </body>
 </html>
